@@ -1,6 +1,7 @@
 package com.burak.commentapp.controller;
 
 import com.burak.commentapp.dto.response.UserCreateResponseDto;
+import com.burak.commentapp.dto.response.UserFindAllResponseDto;
 import com.burak.commentapp.repository.entity.User;
 import com.burak.commentapp.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +15,7 @@ import java.util.Optional;
 import static com.burak.commentapp.contant.EndPoint.*;
 
 @RestController
-@RequestMapping(VERSION+API+USER)
+@RequestMapping("/user")
 @RequiredArgsConstructor
 public class UserController {
 
@@ -27,6 +28,12 @@ public class UserController {
                 telephone(telephone).email(email).password(password).build());
         return ResponseEntity.ok(user);
 
+    }
+
+    @GetMapping("findalldto")
+    public ResponseEntity<UserFindAllResponseDto> findAllDto(User user){
+
+        return ResponseEntity.ok(userService.findAllResponseDto(user));
     }
 
     @GetMapping("/savedto")

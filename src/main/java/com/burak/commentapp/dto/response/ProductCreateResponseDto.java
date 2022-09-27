@@ -5,20 +5,15 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
+import java.time.LocalDate;
 
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class UserCreateResponseDto {
-
+public class ProductCreateResponseDto {
     private String name;
-    private String surName;
-    private String telephone;
-
-
-
-
+    private Double price;
+    private LocalDate expirationDate;
 }

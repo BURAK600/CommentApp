@@ -1,5 +1,6 @@
 package com.burak.commentapp.controller;
 
+import com.burak.commentapp.dto.response.ProductCreateResponseDto;
 import com.burak.commentapp.repository.entity.Product;
 import com.burak.commentapp.service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -30,6 +31,11 @@ public class ProductController {
 
         return  ResponseEntity.ok(productService.save(product));
 
+    }
+    @GetMapping("/savedto")
+    public ResponseEntity<ProductCreateResponseDto> saveDto(Product product){
+        return ResponseEntity.ok(productService.saveDto(product));
+        
     }
 
     @GetMapping("/findAll")

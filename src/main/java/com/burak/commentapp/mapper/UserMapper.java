@@ -1,6 +1,7 @@
 package com.burak.commentapp.mapper;
 
 import com.burak.commentapp.dto.response.UserCreateResponseDto;
+import com.burak.commentapp.dto.response.UserFindAllResponseDto;
 import com.burak.commentapp.repository.entity.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
@@ -14,4 +15,6 @@ public interface UserMapper {
     UserCreateResponseDto toUserCreateResponseDto(final User user);
 
     User toUser(final UserCreateResponseDto userCreateResponseDto);
+
+    UserFindAllResponseDto toUserFindAllResponseDto(final User user);
 }

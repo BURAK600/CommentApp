@@ -12,13 +12,12 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class UserCreateResponseDto {
+public class UserFindAllResponseDto {
 
     private String name;
     private String surName;
     private String telephone;
-
-
+    private List<Long> favProducts;
 
 
 }

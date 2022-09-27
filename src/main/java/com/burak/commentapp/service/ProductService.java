@@ -1,6 +1,8 @@
 package com.burak.commentapp.service;
 
 
+import com.burak.commentapp.dto.response.ProductCreateResponseDto;
+import com.burak.commentapp.mapper.ProductMapper;
 import com.burak.commentapp.repository.IProductRepository;
 import com.burak.commentapp.repository.entity.Product;
 import lombok.RequiredArgsConstructor;
@@ -22,6 +24,11 @@ public class ProductService {
 
     public Product save(Product product){
         return productRepository.save(product);
+    }
+
+    public ProductCreateResponseDto saveDto(Product product){
+        productRepository.save(product);
+        return ProductMapper.INSTANCE.toProductCreateResponseDto(product);
     }
 
 
