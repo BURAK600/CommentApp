@@ -6,26 +6,39 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-@Table(name = "tblkullanici")
+import java.util.List;
+
+@Table(name = "tbluser")
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Data
-public class Kullanici {
+public class User {
 @Id
-@GeneratedValue(strategy = GenerationType.SEQUENCE)
+@GeneratedValue(strategy = GenerationType.IDENTITY)
 private Long id;
 @Column(length = 50)
-private String ad;
+private String name;
 @Column(length = 50)
-private String soyad;
+private String surName;
 @Column(length = 50)
 private String email;
 @Column(length = 15)
-private String telefon;
+private String telephone;
 @Column(length = 32)
 private String password;
+
+    /**
+     * Eger database de görmek istemiyorsak
+     * @Transient  anatasyonu kullanılır.
+     */
+
+@ElementCollection
+private List<Long> favProducts;
+
+
+
 
 
 

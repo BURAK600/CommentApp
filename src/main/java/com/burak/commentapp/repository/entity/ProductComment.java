@@ -7,20 +7,27 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-@Table(name = "tblurun")
+
+@Table(name = "tblurunyorum")
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
 @Builder
-public class Urun {
+@Data
+public class ProductComment {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String ad;
-    private Double fiyat;
-    private LocalDate sonKullanmaTarihi;
+    @Column(length = 500)
+    private String comment;
 
+    private LocalDate commentDate;
+
+    private Long productId;
+
+    private Long userId;
 
 
 }
+
+

@@ -7,27 +7,19 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-
-@Table(name = "tblurunyorum")
+@Table(name = "tbllike")
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
 @Data
-public class UrunYorum {
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class Like {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(length = 500)
-    private String yorum;
-
-    private LocalDate yorumTarihi;
-
-    private Long urunId;
-
-    private Long kullaniciId;
+    private Long userId;
+    private Long productId;
+    private LocalDate likedDate;
 
 
 }
-
-
