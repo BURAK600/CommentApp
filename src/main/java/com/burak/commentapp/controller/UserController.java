@@ -31,9 +31,9 @@ public class UserController {
     }
 
     @GetMapping("findalldto")
-    public ResponseEntity<UserFindAllResponseDto> findAllDto(User user){
+    public ResponseEntity<List<UserFindAllResponseDto>> findAllDto(){
 
-        return ResponseEntity.ok(userService.findAllResponseDto(user));
+        return ResponseEntity.ok(userService.findAllResponseDto());
     }
 
     @GetMapping("/savedto")

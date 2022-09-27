@@ -107,8 +107,9 @@ public class UserService {
         userRepository.save(user);
         return UserMapper.INSTANCE.toUserCreateResponseDto(user);
     }
-    public UserFindAllResponseDto findAllResponseDto(User user){
-        userRepository.findAll();
-        return UserMapper.INSTANCE.toUserFindAllResponseDto(user);
+
+    public List<UserFindAllResponseDto> findAllResponseDto(){
+
+        return UserMapper.INSTANCE.toUserFindAllResponseDto(userRepository.findAll());
     }
 }
