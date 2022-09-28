@@ -1,5 +1,6 @@
 package com.burak.commentapp.service;
 
+import com.burak.commentapp.dto.request.UserCreateRequestDto;
 import com.burak.commentapp.dto.response.UserCreateResponseDto;
 import com.burak.commentapp.dto.response.UserFindAllResponseDto;
 import com.burak.commentapp.mapper.UserMapper;
@@ -111,5 +112,14 @@ public class UserService {
     public List<UserFindAllResponseDto> findAllResponseDto(){
 
         return UserMapper.INSTANCE.toUserFindAllResponseDto(userRepository.findAll());
+    }
+
+
+
+    public UserCreateResponseDto saveWithRequestDto(UserCreateRequestDto dto) {
+        User user = UserMapper.INSTANCE.toUser(dto);
+        userRepository.save(user);
+        return UserMapper.INSTANCE.toUserCreateResponseDto(user);
+
     }
 }

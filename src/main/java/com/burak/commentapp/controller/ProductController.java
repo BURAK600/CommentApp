@@ -1,5 +1,6 @@
 package com.burak.commentapp.controller;
 
+import com.burak.commentapp.dto.request.ProductCreateRequestDto;
 import com.burak.commentapp.dto.response.ProductCreateResponseDto;
 import com.burak.commentapp.repository.entity.Product;
 import com.burak.commentapp.service.ProductService;
@@ -41,6 +42,12 @@ public class ProductController {
             product=  Product.builder().name(name).price(price).build();}
 
         return  ResponseEntity.ok(productService.saveDto(product));
+
+    }
+
+    @GetMapping("/saveWithRequestDto")
+    public ResponseEntity<ProductCreateResponseDto> save(ProductCreateRequestDto productCreateRequestDto){
+      return  ResponseEntity.ok(productService.saveWithRequestDto(productCreateRequestDto));
 
     }
 

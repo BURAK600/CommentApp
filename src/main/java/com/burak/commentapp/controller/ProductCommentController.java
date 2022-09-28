@@ -1,5 +1,7 @@
 package com.burak.commentapp.controller;
 
+import com.burak.commentapp.dto.request.ProductCommentCreateRequestDto;
+import com.burak.commentapp.dto.response.ProductCommentCreateResponseDto;
 import com.burak.commentapp.repository.entity.ProductComment;
 import com.burak.commentapp.service.ProductCommentService;
 import lombok.RequiredArgsConstructor;
@@ -19,6 +21,10 @@ public class ProductCommentController {
 
     private final ProductCommentService productCommentService;
 
+    @GetMapping("/saveWithProductComment")
+    public ResponseEntity<ProductCommentCreateResponseDto> save(ProductCommentCreateRequestDto productCommentCreateRequestDto){
+        return ResponseEntity.ok(productCommentService.saveWithRequestDto(productCommentCreateRequestDto));
+    }
     @GetMapping("/save")
 
     public ResponseEntity<ProductComment> saveProductComment(String comment, LocalDate commentDate){

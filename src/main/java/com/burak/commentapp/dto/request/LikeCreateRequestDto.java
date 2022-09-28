@@ -5,15 +5,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ProductCreateRequestDto {
 
-    private String name;
-    private Double price;
-    private String expirationDate;
+public class LikeCreateRequestDto {
+
+    private Long userId;
+    private Long productId;
 }

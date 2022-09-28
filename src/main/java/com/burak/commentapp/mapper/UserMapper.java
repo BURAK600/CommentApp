@@ -1,5 +1,6 @@
 package com.burak.commentapp.mapper;
 
+import com.burak.commentapp.dto.request.UserCreateRequestDto;
 import com.burak.commentapp.dto.response.UserCreateResponseDto;
 import com.burak.commentapp.dto.response.UserFindAllResponseDto;
 import com.burak.commentapp.repository.entity.User;
@@ -18,5 +19,9 @@ public interface UserMapper {
 
     User toUser(final UserCreateResponseDto userCreateResponseDto);
 
+
     List<UserFindAllResponseDto> toUserFindAllResponseDto(final List<User> users);
+
+
+    User toUser(final UserCreateRequestDto userCreateRequestDto);
 }

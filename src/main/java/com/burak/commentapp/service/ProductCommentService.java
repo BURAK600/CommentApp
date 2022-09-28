@@ -2,6 +2,9 @@ package com.burak.commentapp.service;
 
 
 
+import com.burak.commentapp.dto.request.ProductCommentCreateRequestDto;
+import com.burak.commentapp.dto.response.ProductCommentCreateResponseDto;
+import com.burak.commentapp.mapper.ProductCommentMapper;
 import com.burak.commentapp.repository.IProductCommentRepository;
 import com.burak.commentapp.repository.entity.ProductComment;
 import lombok.RequiredArgsConstructor;
@@ -108,5 +111,11 @@ public class ProductCommentService {
 
     public void saveAll(List<ProductComment> productComment) {
         iProductCommentRepository.saveAll(productComment);
+    }
+
+    public ProductCommentCreateResponseDto saveWithRequestDto(ProductCommentCreateRequestDto productCommentCreateRequestDto) {
+  ProductComment productComment = ProductCommentMapper.INSTANCE.toProductComment(productCommentCreateRequestDto);
+  iProductCommentRepository.save(productComment);
+  return ProductCommentMapper.INSTANCE.toProductCommentCreateResponseDto(productCommentCreateRequestDto);
     }
 }

@@ -20,8 +20,8 @@ public class ProductComment {
     private Long id;
     @Column(length = 500)
     private String comment;
-
-    private LocalDate commentDate;
+    @Builder.Default
+    private LocalDate commentDate = LocalDate.now();
 
     private Long productId;
 

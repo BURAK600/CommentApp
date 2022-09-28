@@ -1,5 +1,6 @@
 package com.burak.commentapp.controller;
 
+import com.burak.commentapp.dto.request.UserCreateRequestDto;
 import com.burak.commentapp.dto.response.UserCreateResponseDto;
 import com.burak.commentapp.dto.response.UserFindAllResponseDto;
 import com.burak.commentapp.repository.entity.User;
@@ -28,6 +29,11 @@ public class UserController {
                 telephone(telephone).email(email).password(password).build());
         return ResponseEntity.ok(user);
 
+    }
+
+    @GetMapping("/saveWithRequestDto")
+    public ResponseEntity<UserCreateResponseDto> save(UserCreateRequestDto dto){
+        return ResponseEntity.ok(userService.saveWithRequestDto(dto));
     }
 
     @GetMapping("findalldto")
