@@ -122,4 +122,8 @@ public class UserService {
         return UserMapper.INSTANCE.toUserCreateResponseDto(user);
 
     }
+
+    public boolean isExistUser(String txteEmail, String txtPassword) {
+       return  userRepository.isExistUser(txteEmail,txtPassword);
+    }
 }

@@ -32,11 +32,6 @@ public interface IUserRepository extends JpaRepository<User, Long> {
     Optional<List<User>> controlPasswordlength2(@Param("value") int value);
 
 
-
-
-
-
-
-
-
+    @Query("select count(u)>0 from User u where (u.email) = ?1 and u.password=?2")
+    Boolean isExistUser(String txteEmail, String txtPassword);
 }

@@ -29,6 +29,7 @@ private String telephone;
 @Column(length = 32)
 private String password;
 
+
     /**
      * Eger database de görmek istemiyorsak
      * @Transient  anatasyonu kullanılır.

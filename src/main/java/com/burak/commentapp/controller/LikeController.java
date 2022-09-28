@@ -1,6 +1,5 @@
 package com.burak.commentapp.controller;
 
-
 import com.burak.commentapp.repository.entity.User;
 import com.burak.commentapp.repository.entity.Like;
 import com.burak.commentapp.repository.entity.Product;
@@ -24,9 +23,6 @@ public class LikeController {
     private final LikeService likeService;
     private final UserService userService;
     private final ProductService productService;
-
-
-
 
     @GetMapping("/likeNumber")
     public ResponseEntity<Optional<Like>> toLike(Long userId, Long productId){
