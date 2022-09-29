@@ -29,6 +29,8 @@ private String telephone;
 @Column(length = 32)
 private String password;
 
+@Enumerated(EnumType.STRING)
+private EUserType eUserType = EUserType.USER;
 
     /**
      * Eger database de görmek istemiyorsak

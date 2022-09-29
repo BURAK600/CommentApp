@@ -1,5 +1,6 @@
 package com.burak.commentapp.utility;
 
+import com.burak.commentapp.repository.entity.EUserType;
 import com.burak.commentapp.repository.entity.User;
 import com.burak.commentapp.repository.entity.Product;
 import com.burak.commentapp.repository.entity.ProductComment;
@@ -46,7 +47,7 @@ public class DataImpl {
         User user3= User.builder().email("aras@gmail.com").name("Aras").
                 surName("Gr").password("123").telephone("123").build();
         User user4= User.builder().email("didem@gmail.com").name("Didem").
-                surName("Sönmez").password("123").telephone("123").build();
+                surName("Sönmez").eUserType(EUserType.ADMIN).password("123").telephone("123").build();
 
         userService.saveAll(List.of(user,user1,user2,user3,user4));
     }
